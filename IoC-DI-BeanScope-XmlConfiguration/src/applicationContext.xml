@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:context="http://www.springframework.org/schema/context"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+     
+     
+     
+     <!-- loading properties file to get values from properties file -->
+     
+     <context:property-placeholder location="classpath:details.properties"/>
+     
+     
+     <!-- Define your beans here -->    
+     
+       <!-- Define dependency injection -->
+     
+     <bean id="myFortune"
+     		class="com.iris.springdemo.HappyFortuneService">
+     </bean>
+     
+     <bean id="myCoach"
+     		class="com.iris.springdemo.BaseballCoach">
+     		
+     		<!-- set up constructor injection -->
+     		
+     		<constructor-arg ref="myFortune"/>
+     		
+     </bean>
+     
+     <bean id="myCoach1"
+     		class="com.iris.springdemo.TrackCoach">
+     		
+     		<!-- set up constructor injection -->
+     		
+     		<constructor-arg ref="myFortune"/>
+     </bean>
+     
+     <bean id="cricketCoach"
+     		class="com.iris.springdemo.CricketCoach">
+     		
+     		<!-- set up setter injection -->
+     		<property name="fortuneService" ref="myFortune"/>	<!-- will call the setFortuneService method of cricketcoach class -->
+     		
+     		
+     		<!-- set up LITERAL INJECTION -->
+     		
+     		<!-- 
+     		<property name="emailAdd" value="shubham.verma@irissoftware"/>
+     		<property name="team" value="shubham's team"/>
+     		 -->
+     		
+     		<!-- reference values from properties files : details.properties --> 
+     		 
+     		 <property name="emailAdd" value="${email}"/>
+     		 <property name="team" value="${team}"/>
+     		 
+     </bean>
+   
+     
+     
+</beans>
