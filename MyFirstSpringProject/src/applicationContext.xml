@@ -8,6 +8,12 @@
                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
                
    <bean id="studentBean" class="com.iris.spring.BeanClass">
-   <property name="studentName" value="Shubham Verma"></property>
-   </bean>            
+	   <property name="studentName" value="Shubham Verma"></property>
+	   <property name="val1" value="23"></property>
+	   <property name="val2" value="34"></property>
+   </bean> 
+   
+   <bean id="tempBean" class="com.iris.spring.TempClass">
+   		<property name="tempVar" value="temp value"></property>
+   </bean>  
 </beans>

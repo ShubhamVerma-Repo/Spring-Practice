@@ -1,19 +1,20 @@
 package com.iris.spring;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainClass {
 
 	public static void main(String[] args)
 	{
-		Resource resourse=new ClassPathResource("applicationContext.xml");
-		BeanFactory factory=new XmlBeanFactory(resourse);
-		
-		BeanClass beanClassObject=(BeanClass) factory.getBean("studentBean");
+		ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		BeanClass beanClassObject= context.getBean("studentBean", BeanClass.class);
 		beanClassObject.displayName();
+		System.out.println("sum of two numbers : "+beanClassObject.sum());
+		
+		TempClass tempClassObject=context.getBean("tempBean", TempClass.class);
+		System.out.println(tempClassObject.getTempVar());
+		
+		context.close();
 	}
 
 }
