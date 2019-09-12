@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+               
+    <!-- loading properties file in application context -->
+		<context:property-placeholder location="classpath:student.properties"/>
+               
+   <bean id="studentBean" class="com.demo.pojo.Student">
+	  <property name="studentName" value="Shubham Verma"></property>
+	  <property name="studentAge" value="23"></property>
+	  <property name="studentAddress" ref="studentAddressBean"></property>
+	  
+	  <!-- properties file injection to fields -->
+   		<property name="testStudentPropertiesEmail" value="${test.email}"></property>
+   		
+   </bean> 
+   
+   <bean id="studentAddressBean" class="com.demo.pojo.StudentAddress">
+   	<!-- constructor injection -->
+   		<constructor-arg name="flatNo" value="das"></constructor-arg>
+   	<!-- setter injection -->	
+   		<property name="flatNo" value="N-1204"></property>
+   		<property name="area" value="VVIP, Raj Nagar Extension"></property>
+   		<property name="city" value="Ghaziabad"></property>
+   		<property name="state" value="UP"></property>
+   		<property name="pincode" value="201001"></property>
+   		<property name="country" value="India"></property>
+   </bean>
+   
+</beans>
