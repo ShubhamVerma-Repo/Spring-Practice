@@ -1,5 +1,8 @@
 package com.demo.pojo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StudentAddress {
 	
 	private String flatNo;
@@ -8,6 +11,9 @@ public class StudentAddress {
 	private String state;
 	private long pincode;
 	private String country;
+	
+	public StudentAddress() {
+	}
 	
 	public StudentAddress(String flatNo) {
 		this.flatNo=flatNo;

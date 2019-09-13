@@ -1,8 +1,15 @@
 package com.demo.pojo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+/*@Scope("prototype")*/
 public class Student 
 {
 	private String studentName;
@@ -37,6 +44,9 @@ public class Student
 	public StudentAddress getStudentAddress() {
 		return studentAddress;
 	}
+	
+	@Autowired
+	@Qualifier("studentAddress")
 	public void setStudentAddress(StudentAddress studentAddress) {
 		this.studentAddress = studentAddress;
 	}
@@ -53,6 +63,16 @@ public class Student
 	public String toString() {
 		return " [studentName=" + studentName + ", studentAge=" + studentAge + ", studentRoll=" + studentRoll
 				+ ", studentAddress=" + studentAddress + "]";
+	}
+	
+	@PostConstruct
+	public void doMyStartUpStuff() {
+		System.out.println("hey, you are in post initialization method.");
+	}
+	
+	@PreDestroy
+	public void doMyEndUpStuff() {
+		System.out.println("hey, you are in pre destruction method.");
 	}
 
 }
