@@ -1,8 +1,10 @@
 package com.demo.pojo;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class StudentAddress {
 	
 	private String flatNo;

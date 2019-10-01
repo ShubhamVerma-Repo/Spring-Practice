@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-/*@Scope("prototype")*/
+@Scope("prototype")
 public class Student 
 {
 	private String studentName;
@@ -74,5 +74,4 @@ public class Student
 	public void doMyEndUpStuff() {
 		System.out.println("hey, you are in pre destruction method.");
 	}
-
 }

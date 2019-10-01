@@ -14,11 +14,32 @@ public class MainClassForJavaAnnotation {
 		studentObject.setStudentName("Atul");
 		System.out.println(studentObject.toString());
 		
+		/*
+		Student studentObject1= context.getBean("student", Student.class);
+		studentObject1.setStudentName("Shubham");
+		System.out.println(studentObject1.toString());
+		*/
 		
+		/*
+		//Checking if parent bean is of Singleton Scope and inherited bean is of Prototype scope
+		System.out.println("checking bean scope of studentAddress : " + studentObject.getStudentAddress().equals(studentObject1.getStudentAddress()));
+		System.out.println("memory address of object 1 : " +  studentObject.getStudentAddress().hashCode());
+		System.out.println("memory address of object 2 : " +  studentObject1.getStudentAddress().hashCode());
+		*/
+		
+		/*
+		//Checking if parent bean is of Prototype Scope and inherited bean is of Singleton scope
+		System.out.println("checking bean scope of student : "+studentObject.equals(studentObject1));
+		System.out.println("checking bean scope of studentAddress : " + studentObject.getStudentAddress().equals(studentObject1.getStudentAddress()));
+		System.out.println("memory address of object 1 : " +  studentObject.getStudentAddress().hashCode());
+		System.out.println("memory address of object 2 : " +  studentObject1.getStudentAddress().hashCode());
+		*/
+		
+		/*
 		StudentCrud crudObject=new StudentCrud();
 		crudObject.addStudent(studentObject);		
 		System.out.println(studentObject.toString());
-		
+		*/
 		
 		/*
 		 * 
