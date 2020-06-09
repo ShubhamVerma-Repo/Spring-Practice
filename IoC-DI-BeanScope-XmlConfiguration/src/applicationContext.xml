@@ -20,11 +20,11 @@
        <!-- Define dependency injection -->
      
      <bean id="myFortune"
-     		class="com.iris.springdemo.HappyFortuneService">
+     		class="com.demo.springdemo.HappyFortuneService">
      </bean>
      
      <bean id="myCoach"
-     		class="com.iris.springdemo.BaseballCoach">
+     		class="com.demo.springdemo.BaseballCoach">
      		
      		<!-- set up constructor injection -->
      		
@@ -33,7 +33,7 @@
      </bean>
      
      <bean id="myCoach1"
-     		class="com.iris.springdemo.TrackCoach">
+     		class="com.demo.springdemo.TrackCoach">
      		
      		<!-- set up constructor injection -->
      		
@@ -41,7 +41,7 @@
      </bean>
      
      <bean id="cricketCoach"
-     		class="com.iris.springdemo.CricketCoach">
+     		class="com.demo.springdemo.CricketCoach">
      		
      		<!-- set up setter injection -->
      		<property name="fortuneService" ref="myFortune"/>	<!-- will call the setFortuneService method of cricketcoach class -->
@@ -50,7 +50,7 @@
      		<!-- set up LITERAL INJECTION -->
      		
      		<!-- 
-     		<property name="emailAdd" value="shubham.verma@irissoftware"/>
+     		<property name="emailAdd" value="shubham.verma@gmail.com"/>
      		<property name="team" value="shubham's team"/>
      		 -->
      		

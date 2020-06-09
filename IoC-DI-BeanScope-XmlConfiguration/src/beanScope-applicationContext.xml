@@ -14,7 +14,7 @@
 	<!-- Define dependency injection -->
 
 	<bean id="myFortune" 
-		class="com.iris.springdemo.HappyFortuneService">
+		class="com.demo.springdemo.HappyFortuneService">
 	</bean>
 
 
@@ -22,14 +22,14 @@
 <!-- ***********	PROTOTYPE SCOPE BEAN	********** -->
 
 	<!-- <bean id="myCoach" 
-		class="com.iris.springdemo.BaseballCoach"		
+		class="com.demo.springdemo.BaseballCoach"		
 		scope="prototype">	 -->	<!-- new object for each request in PROTOTYPE scope -->
 
 
 <!-- *************	  SINGLETONE TYPE BEAN		************** -->
 
 	<bean id="myCoach" 
-		class="com.iris.springdemo.BaseballCoach">	<!-- by default the scope of the bean is SINGLETON (only one instance) -->
+		class="com.demo.springdemo.BaseballCoach">	<!-- by default the scope of the bean is SINGLETON (only one instance) -->
 
 		<!-- set up constructor injection -->
 		<constructor-arg ref="myFortune" />
